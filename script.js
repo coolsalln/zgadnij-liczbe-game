@@ -17,21 +17,25 @@ const game = {
     isGameOver: true,
 
     // UI Cache
-    elements: {
-        viewMenu: document.getElementById('view-menu'),
-        viewGame: document.getElementById('view-game'),
-        viewResult: document.getElementById('view-result'),
+    elements: {},
 
-        displayLevelName: document.getElementById('display-level-name'),
-        displayRange: document.getElementById('display-range'),
-        displayAttempts: document.getElementById('display-attempts'),
+    init: function () {
+        this.elements = {
+            viewMenu: document.getElementById('view-menu'),
+            viewGame: document.getElementById('view-game'),
+            viewResult: document.getElementById('view-result'),
 
-        inputGuess: document.getElementById('user-guess'),
-        btnSubmit: document.getElementById('btn-submit'),
-        feedback: document.getElementById('feedback-message'),
+            displayLevelName: document.getElementById('display-level-name'),
+            displayRange: document.getElementById('display-range'),
+            displayAttempts: document.getElementById('display-attempts'),
 
-        resultTitle: document.getElementById('result-title'),
-        resultMessage: document.getElementById('result-message')
+            inputGuess: document.getElementById('user-guess'),
+            btnSubmit: document.getElementById('btn-submit'),
+            feedback: document.getElementById('feedback-message'),
+
+            resultTitle: document.getElementById('result-title'),
+            resultMessage: document.getElementById('result-message')
+        };
     },
 
     /**
@@ -65,7 +69,7 @@ const game = {
         // Focus input after transition
         setTimeout(() => this.elements.inputGuess.focus(), 100);
 
-        console.log(`Game started. Target: ${this.targetNumber}`); // For debugging
+
     },
 
     /**
@@ -170,6 +174,8 @@ const game = {
  * Event Listeners
  */
 document.addEventListener('DOMContentLoaded', () => {
+    game.init();
+
     // Submit button
     game.elements.btnSubmit.addEventListener('click', () => game.checkGuess());
 

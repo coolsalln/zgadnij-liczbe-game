@@ -143,8 +143,10 @@ h2 {
 
 /* Input Area */
 .instruction {
+    display: block;
     margin-bottom: 1rem;
     font-size: 1.2rem;
+    cursor: pointer;
 }
 
 .input-group {
@@ -169,6 +171,7 @@ input[type="number"] {
 }
 
 input[type="number"]:focus {
+    outline: 2px solid transparent;
     box-shadow: 0 0 15px var(--neon-magenta);
 }
 
