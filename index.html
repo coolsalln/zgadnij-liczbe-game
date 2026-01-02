@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zgadnij Liczbę - Neon Edition</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>ZGADNIJ <span class="neon-text">LICZBĘ</span></h1>
+        </header>
+
+        <main id="game-app">
+            <!-- View: Difficulty Selection -->
+            <section id="view-menu" class="active-view">
+                <h2>Wybierz poziom trudności</h2>
+                <div class="difficulty-buttons">
+                    <button class="btn-neon" data-level="1" onclick="game.start(1)">
+                        <span class="btn-text">ŁATWY</span>
+                        <span class="btn-subtext">1-50 (10 prób)</span>
+                    </button>
+                    <button class="btn-neon" data-level="2" onclick="game.start(2)">
+                        <span class="btn-text">ŚREDNI</span>
+                        <span class="btn-subtext">1-100 (7 prób)</span>
+                    </button>
+                    <button class="btn-neon" data-level="3" onclick="game.start(3)">
+                        <span class="btn-text">TRUDNY</span>
+                        <span class="btn-subtext">1-1000 (5 prób)</span>
+                    </button>
+                </div>
+            </section>
+
+            <!-- View: Gameplay -->
+            <section id="view-game" class="hidden-view">
+                <div class="game-info">
+                    <div class="info-box">
+                        <span class="label">Poziom:</span>
+                        <span id="display-level-name" class="value">Łatwy</span>
+                    </div>
+                    <div class="info-box">
+                        <span class="label">Zakres:</span>
+                        <span id="display-range" class="value">1-50</span>
+                    </div>
+                    <div class="info-box">
+                        <span class="label">Próby:</span>
+                        <span id="display-attempts" class="value bad">10</span>
+                    </div>
+                </div>
+
+                <div class="game-board">
+                    <p class="instruction">Wpisz liczbę:</p>
+                    <div class="input-group">
+                        <input type="number" id="user-guess" placeholder="?" min="1">
+                        <button id="btn-submit" class="btn-action">SPRAWDŹ</button>
+                    </div>
+                    <div id="feedback-message" class="message-area"></div>
+                </div>
+            </section>
+
+            <!-- View: Result -->
+            <section id="view-result" class="hidden-view">
+                <h2 id="result-title">KONIEC GRY</h2>
+                <p id="result-message" class="result-msg">Szukana liczba to: 42</p>
+                <button class="btn-neon" onclick="game.reset()">ZAGRAJ PONOWNIE</button>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Neon Games Studio</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
